@@ -1,9 +1,16 @@
-package luizbr.model;
+package luizbr.domain.model;
 
+import jakarta.persistence.*;
+
+@Entity(name = "tb_atividades")
 public class Atividade {
-    Long id;
-    String descricao;
-    Categoria categoria;
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
+    private String descricao;
+
+    @ManyToOne(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+    private Categoria categoria;
 
     public Long getId() {
         return id;

@@ -1,8 +1,16 @@
-package luizbr.model;
+package luizbr.domain.model;
 
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+
+@Entity(name = "tb_categoria")
 public class Categoria {
-    Long id;
-    String descricaoCategoria;
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
+    private String descricaoCategoria;
 
     public Long getId() {
         return id;
